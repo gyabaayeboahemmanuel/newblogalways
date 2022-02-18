@@ -21,5 +21,6 @@ from blog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blogs/', include('blog.urls')),
+    path('', views.index ),
     #path("podcast/", include('podcast.urls')),
 ]

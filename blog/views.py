@@ -8,6 +8,8 @@ def blog_post (request):
     blog = Blog.objects.all()
     context = {
         "blog":blog,
-
     }
     return render(request, "blog/blogs.html", context)
+    
+def index (request):
+    return render (request, "index.html")

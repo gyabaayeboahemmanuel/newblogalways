@@ -16,10 +16,10 @@ urlpatterns = (
     #path("accounts/login", login, name="login"), 
     path('', views.index, name = "index" ),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('accounts/', include('allauth.urls')),
+   # path('accounts/', include('allauth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('blog/', include('blog.urls')),
-    path('api/v1/', include('blog.api.v1.routers.routers')), 
+    #path('blog/', include('blog.urls')),
+    #path('api/v1/', include('blog.api.v1.routers.routers')), 
     #path("podcast/", include('podcast.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

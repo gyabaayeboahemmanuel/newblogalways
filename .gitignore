@@ -1,0 +1,24 @@
+# OSX #
+.DS_Store
+
+# Byte-compiled / optimized / DLL files #
+__pycache__/
+*.py[cod]
+*$py.class
+
+.env
+*.env
+venv/
+venv
+venv/*
+env/*
+
+
+# Django #
+*.log
+db.sqlite3
+media
+
+
+.env
+.env.json

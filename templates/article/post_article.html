@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+Write an Article
+{% endblock title %}
+{% block content %}
+<div class="container">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <div class="row">
+        <div class="col-4">
+......................................
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-center text-bolder">Write an Article</h2>
+            <small class="text-center"> fields marked (*) are mandatory </small>
+            <hr>
+            <form action="">
+                {% csrf_token %}
+                {{postarticleforms.media}}
+                {{postarticleforms}}
+                <p><input class="btn btn-success" type="submit" value="Publish"></p>
+
+            </form>
+        </div>
+        <div class ="col-md-4">
+            ...........................
+        </div> 
+    </div>
+
+</div>
+    {% comment %} <form method="POST" action="./">
+        {{ form.errors }}
+        {% csrf_token %}
+        {{ form.media}}
+
+        {{ form.non_field_errors }}
+<div class="fieldWrapper">
+    {{ form.title.errors }}
+    <span>{{ postarticleforms.title.label_tag}}</span>
+    {{ postarticleforms.title }}
+</div>
+
+
+<div class="imagefieldWrapper1">
+    {{ postarticleforms.image1.errors }}
+    <span>{{ postarticleforms.image1.label_tag}}(Thumbnail)</span>
+    {{ postarticleforms.image1 }}
+</div>
+<div class="textfieldWrapper1">
+    {{ postarticleforms.content_part1.errors }}
+    <span> {{ postarticleforms.content_part1.label_tag}} </span>
+    {{ postarticleforms.content_part1 }}
+</div>
+
+<div id="imagefieldWrapper2" >
+    {{ postarticleforms.image2.errors }}
+    <span>{{ postarticleforms.image2.label_tag}}</span>
+    {{ postarticleforms.image2 }}
+</div>
+<div id="textfieldWrapper2" >
+    {{ postarticleforms.content_part2.errors }}
+    <span>{{ postarticleforms.content_part2.label_tag}}</span>
+    {{ postarticleforms.content_part2 }}
+</div>
+
+<div id="imagefieldWrapper3" >
+    {{ postarticleforms.image3.errors }}
+    <span>{{ postarticleforms.image3.label_tag}}</span>
+    {{ postarticleforms.image3 }}
+</div>
+<div id="textfieldWrapper3" >
+    {{ postarticleforms.content_part3.errors }}
+    <span>{{ postarticleforms.content_part3.label_tag}}</span>
+    {{ postarticleforms.content_part3 }}
+</div>
+
+<div id="imagefieldWrapper4" >
+    {{ postarticleforms.image4.errors }}
+    <span>{{ postarticleforms.image4.label_tag}}</span>
+    {{ postarticleforms.image4 }}
+</div>
+<div id="textfieldWrapper4" >
+    {{ postarticleforms.content_part4.errors }}
+    <span>{{ postarticleforms.content_part4.label_tag}}</span>
+    {{ postarticleforms.content_part4 }}
+</div>
+
+<div id="imagefieldWrapper5" >
+    {{ postarticleforms.image5.errors }}
+    <span>{{ postarticleforms.image5.label_tag}}</span>
+    {{ postarticleforms.image5 }}
+</div>
+<div id="textfieldWrapper5" >
+    {{ postarticleforms.content_part5.errors }}
+    <span>{{ postarticleforms.content_part5.label_tag}}</span>
+    {{ postarticleforms.content_part5 }}
+</div>
+
+<div id="imagefieldWrapper6" >
+    {{ postarticleforms.image6.errors }}
+    <span>{{ postarticleforms.image6.label_tag}}</span>
+    {{ postarticleforms.image6 }}
+</div>
+<div id="textfieldWrapper6" >
+    {{ postarticleforms.content_part6.errors }}
+    <span>{{ postarticleforms.content_part6.label_tag}}</span>
+    {{ postarticleforms.content_part6 }}
+</div>
+     <p><input class="btn btn-success" type="submit" value="Post"></p>
+
+    </form>
+    <button class="btn btn-outline" onclick="addimage()"> <i class="bi bi-plus" id="img-button" >Image</i></button> <button class="btn btn-outline" onclick="addtext()" id="text-button" > <i class="bi bi-plus">Text Field</i></button>
+
+        </div>
+   </div>
+</div> {% endcomment %}
+
+<script>
+    {% comment %} $(document).read(function(){
+        var max_fields = 7;
+        var imgwrapper2 = $(".imagefieldWrapper2")
+        var txtwrapper2 = $(".textfieldWrapper2")
+        var addimgbutton = $("#img-button");
+        var addtxtbutton = $("#text-button");
+
+        var x = 1; var y = 1;
+        $(addimgbutton).click(function(e){
+            e.preventDefault();
+            if(x < max_fields){
+                x++;
+                $(imgwrapper2).show()
+                $(".imagefieldWrapper2").css("display", "block");
+               
+            }
+        })
+        $(addtxtbutton).click(function(e){
+            e.preventDefault();
+            if(y < max_fields){
+                y++;
+                $(txtwrapper2).show();
+                $(".textfieldWrapper2").css("display", "block");
+            }
+        })
+
+    })
+</script>
+<script>
+  
+        var max_fields = 7;
+      
+        // var txtwrapper2 = $(".textfieldWrapper2")
+        // var addimgbutton = $("#img-button");
+        // var addtxtbutton = $("#text-button");
+
+        var x = 1; var y = 1;
+        function addimage(){
+            if(x < max_fields){
+              
+                if (x==1) {
+                    document.getElementById("imagefieldWrapper2").style.display = "block";  
+                }
+                if  (x ==2){
+                    document.getElementById("imagefieldWrapper3").style.display = "block" ;
+                } if (x==3) {
+                    document.getElementById("imagefieldWrapper4").style.display = "block" ;
+                } if(x==4){
+                    document.getElementById("imagefieldWrapper5").style.display = "block"; 
+                }
+                 else if (x==5){
+                    document.getElementById("imagefieldWrapper6").style.display = "block" ;
+                }
+                x++;
+            }
+        }
+        function addtext(){
+            if(y < max_fields){
+              
+                if (y==1) {
+                    document.getElementById("textfieldWrapper2").style.display = "block";  
+                }
+                if  (y ==2){
+                    document.getElementById("textfieldWrapper3").style.display = "block" ;
+                } if(y==3) {
+                    document.getElementById("textfieldWrapper4").style.display = "block" ;
+                } if(y==4){
+                    document.getElementById("textfieldWrapper5").style.display = "block"; 
+                }
+                 else if (y==5) {
+                    document.getElementById("textfieldWrapper6").style.display = "block" ;
+                }
+                y++;
+            }
+        } 
+         {% endcomment %}
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <hr>
+        <img src="{{articles.author.profile2.profile_picture.url}}" alt = ""  height ="100px" style=" width:100px;height:100px; border-radius: 50%">
+        <i> Author:  {{articles.author.profile2.firstName}} {{articles.author.profile2.lastName}}   was published on {{articles.date}} </i>
+        <hr>
+    </div>
+
+    <div class="col-12 py-5">
+        <div class="md-5 w-100">
+            <div class="row g-0">
+                <h1 class="card-title">{{articles.title}} </h1>
+              
+                <div class="col-md-12">
+                    <img src="{{articles.thumbnail.url}}" alt="Image not Found" width="12800"  class=" detail_image" height='10%'>
+                </div>
+                <div class="row g-0">                    
+                    <p class="card-text" >
+                        {{articles.content | safe}}
+                    </p>
+
+                </div>
+            </div>  
+        </div>        
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

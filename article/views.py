@@ -1,4 +1,5 @@
-from email import message
+from django.core.checks import messages
+from django.contrib import messages
 from importlib.metadata import files
 from multiprocessing import context
 from django.shortcuts import get_object_or_404, redirect, render
@@ -56,14 +57,17 @@ def post_article(request):
         postarticleforms = post_article_forms(data= request.POST, files=request.FILES)
         if postarticleforms.is_valid():
             postarticle =  postarticleforms.save(commit=False)
+            print("was able to take the date")
             postarticle.author = request.user
             postarticle.save()
-            message.success(request, 'Post Created')
+            messages.success(request, 'Post Created')
             return redirect("/articles/")
         else:
-            message.warning(request, "Invalid data entry")
+            messages.warning(request, "Invalid data entry")
     else: 
+        
         postarticleforms = post_article_forms()
+        print("nothing came out")
     context ={
         "postarticleforms": postarticleforms,
     }

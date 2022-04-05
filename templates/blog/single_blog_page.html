@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{user.username}}{% endblock title %}%}
+
+{% block content %}
+
+<div class="container ">
+  <div> All about {{user.username}} and his posts will be here </div> 
+
+  <div class = "col-12">
+      <div class = "col-4" >
+          Post on Articles
+      </div>
+      <div class = "col-4" >
+        Post on Podcast
+    </div>
+    <div class = "col-4" >
+        Post on Nuggests
+    </div>
+    </div>
+
+</div>
+{% endblock content %}

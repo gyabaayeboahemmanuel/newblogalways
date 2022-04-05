@@ -14,7 +14,7 @@ Write an Article
             <h2 class="text-center text-bolder">Write an Article</h2>
             <small class="text-center"> fields marked (*) are mandatory </small>
             <hr>
-            <form action="">
+            <form method="POST" action="{% url 'article:post_article' %}?next=/"  enctype="multipart/form-data">
                 {% csrf_token %}
                 {{postarticleforms.media}}
                 {{postarticleforms}}

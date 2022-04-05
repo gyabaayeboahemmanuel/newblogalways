@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blog{% endblock title %}%}
+
+{% block content %}
+
+<div class="container ">
+  
+    {% for user in users %}
+    <div class="col-12 py-5">
+                <div class="card md-5 w-75" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{user.thumbnail.url}}" alt="Image not Found" class="img-fluid rounded-start" style="max-height: fit-content;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                 <a href="{% url 'account:view_single_blog' user.id %}" ><h5 class="card-title">{{user.username}} </h5> </a> 
+                                
+                               
+                                <p class="card-text text-muted">
+                                     {{user.firstname}}  +  {{user.lastname}}   
+                                </p>
+                               
+                            </div>
+                        </div>
+                    </div>  
+                </div>    
+             {% endfor %}  
+</div>
+{% endblock content %}

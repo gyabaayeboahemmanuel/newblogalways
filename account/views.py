@@ -56,46 +56,46 @@ def login (request):
         "loginform": user_login
         })
 
-@login_required
-def edit_user_profile(request, pk):
-    userform = get_object_or_404(User, pk=pk)
-    userprofileform = get_object_or_404(Profile, pk=pk)
-    if request.method == "POST":
-        print("..................geting reqeust ....................")
-        user_form = UserForm(data=request.POST, files=request.FILES, instance = userform)
-        profile_form = UserProfileForm(data=request.POST, files=request.FILES, instance = userprofileform)
-        print("..................form recived....................")
+# @login_required
+# def edit_user_profile(request, pk):
+#     userform = get_object_or_404(User, pk=pk)
+#     userprofileform = get_object_or_404(Profile, pk=pk)
+#     if request.method == "POST":
+#         print("..................geting reqeust ....................")
+#         user_form = UserForm(data=request.POST, files=request.FILES, instance = userform)
+#         profile_form = UserProfileForm(data=request.POST, files=request.FILES, instance = userprofileform)
+#         print("..................form recived....................")
         
-        if user_form.is_valid() and profile_form.is_valid():
-            print("..................data to be saved....................")
+#         if user_form.is_valid() and profile_form.is_valid():
+#             print("..................data to be saved....................")
            
-            user = user_form.save(commit=False)
-            profile = profile_form.save(commit=False)
-            user.username = user.first_name + str(random.randint(0, 1000))
-            user.password = "something.random_here"
-            user.password2 = "something.random_here"
-            user.save()
-            profile.user = user
-            profile.save()
+#             user = user_form.save(commit=False)
+#             profile = profile_form.save(commit=False)
+#             user.username = user.first_name + str(random.randint(0, 1000))
+#             user.password = "something.random_here"
+#             user.password2 = "something.random_here"
+#             user.save()
+#             profile.user = user
+#             profile.save()
 
-            messages.success(request, 'user created')
-            return redirect("")
-        else:
-            print("..................data not saved ....................")
+#             messages.success(request, 'user created')
+#             return redirect("")
+#         else:
+#             print("..................data not saved ....................")
 
-            messages.warning(request, "invalid data entry")
+#             messages.warning(request, "invalid data entry")
 
-    else:
-        print(".................form not gotten ....................")
+#     else:
+#         print(".................form not gotten ....................")
 
-        user_form = UserForm(instance = userform)
-        profile_form = UserProfileForm(isntance = userprofileform)
+#         user_form = UserForm(instance = userform)
+#         profile_form = UserProfileForm(isntance = userprofileform)
 
-    return render(request, 'registration/signup.html', 
-        {
-        "user_form": user_form,
-        "profile_form" : profile_form
-        })
+#     return render(request, 'registration/signup.html', 
+#         {
+#         "user_form": user_form,
+#         "profile_form" : profile_form
+#         })
            
     
 

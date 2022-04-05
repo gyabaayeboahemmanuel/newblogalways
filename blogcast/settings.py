@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'account',
     'crispy_forms',
-    'blog.apps.BlogConfig',
     'django.contrib.sites',
     'allauth',
     

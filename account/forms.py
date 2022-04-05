@@ -18,7 +18,7 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     
     class Meta:
-        model = Profile2
+        model = Profile
         fields = ("profile_picture",)
 
 class LoginForm(forms.ModelForm):
